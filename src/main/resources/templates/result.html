@@ -1,0 +1,43 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<title>Hitel kalkulátor</title>
+	</head>
+
+	<body>
+		
+		<div class="normalPayment-table">
+			<table border="1px solid black">
+			
+				<tr class="table-title">
+					<th class="col-1" colspan="6">Törlesztés részletei</th>
+				</tr>
+				
+				<tr class="table-header">
+					<th class="col-1">hónap</th>
+					<th class="col-2">fennálló tartozás</th>
+					<th class="col-3">kamat</th>
+					<th class="col-4">tőke</th>
+					<th class="col-5">törlesztés</th>
+					<th class="col-6">előtörlesztés</th>
+				</tr>
+
+				<tr th:each="monthlyData : ${result.normalData}">
+					<td class="col-1" align="right" th:text="${monthlyData.month}"></td>
+					<td class="col-2" align="right" th:text="${monthlyData.outstanding}"></td>
+					<td class="col-3" align="right" th:text="${monthlyData.interest}"></td>
+					<td class="col-4" align="right" th:text="${monthlyData.capital}"></td>
+					<td class="col-5" align="right" th:text="${monthlyData.payment}"></td>
+					<td class="col-6" align="right" th:text="${monthlyData.prepayment}"></td>
+				</tr>
+					
+			</table>
+		</div>
+		
+		
+	</body>
+
+</html>

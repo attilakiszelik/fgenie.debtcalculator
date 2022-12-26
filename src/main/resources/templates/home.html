@@ -1,0 +1,21 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<title>Hitel kalkulátor</title>
+	</head>
+
+	<body>
+		
+		<form th:action="@{/debtcalculator/calculate}" th:object="${calculation}" method="post">
+			<p>Hitel összeg: <input type="text" th:name="*{amount}"/></p>
+			<p>Hónapok száma: <input type="text" th:name="*{periods}"/></p>
+			<p>Éves kamat mértéke: <input type="text" th:name="*{interestRate}"/></p>
+			<input type="submit" value="lekérdezés" class="btn btn-primary btn-med"/>
+		</form>			
+		
+	</body>
+
+</html>
